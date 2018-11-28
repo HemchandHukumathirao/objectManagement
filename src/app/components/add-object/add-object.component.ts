@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { Router, ActivatedRoute } from "@angular/router";
-import { ObjectService } from "src/app/services/object.service";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ObjectService } from 'src/app/services/object.service';
 
 @Component({
-  selector: "app-add-object",
-  templateUrl: "./add-object.component.html",
-  styleUrls: ["./add-object.component.scss"]
+  selector: 'app-add-object',
+  templateUrl: './add-object.component.html',
+  styleUrls: ['./add-object.component.scss']
 })
 export class AddObjectComponent implements OnInit {
   // create objectAddForm of type FormGroup
@@ -21,7 +21,7 @@ export class AddObjectComponent implements OnInit {
   ) {
     // Check for route params
     this.route.params.subscribe(params => {
-      this.index = params["id"];
+      this.index = params['id'];
       // check if ID exists in route & call update or add methods accordingly
       if (this.index && this.index != null && this.index !== undefined) {
         this.getObjectDetails(this.index);
@@ -46,7 +46,7 @@ export class AddObjectComponent implements OnInit {
     );
     if (objectRegister) {
       if (objectRegister.code === 200) {
-        this.router.navigate(["/"]);
+        this.router.navigate(['/']);
       } else {
       }
     }
@@ -63,7 +63,7 @@ export class AddObjectComponent implements OnInit {
     if (data == null) {
       this.objectAddForm = this.formBuilder.group({
         name: [
-          "",
+          '',
           [
             Validators.required,
             Validators.minLength(3),
@@ -71,7 +71,7 @@ export class AddObjectComponent implements OnInit {
           ]
         ],
         title: [
-          "",
+          '',
           [
             Validators.required,
             Validators.minLength(3),
